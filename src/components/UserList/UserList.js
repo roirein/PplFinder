@@ -17,11 +17,11 @@ const UserList = ({ users, isLoading, onRemove, onClick}) => {
   return (
     <S.UserList>
       <S.List>
-        {users.map((user, index) => {
+        {users ? users.map((user, index) => {
           return (
             <User user={user} isFav={user.isFavorite} key={index} onRemove={onRemove} markFavorite={onMarkFavorite}/>
           );
-        })}
+        }) : "No Users To Show"}
         {isLoading && (
           <S.SpinnerWrapper>
             <Spinner color="primary" size="45px" thickness={6} variant="indeterminate" />
