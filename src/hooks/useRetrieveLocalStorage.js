@@ -5,7 +5,12 @@ const useRetrieveLocalStorage = () => {
 
   useEffect(() => {
     const favUsers = JSON.parse(localStorage.getItem('favoriteUsers'));
-    setUsers(favUsers)
+    if (!favUsers){
+      setUsers([])
+    }
+    else{
+      setUsers(favUsers)
+    }
   },[])
 
 
